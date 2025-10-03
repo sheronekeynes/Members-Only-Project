@@ -10,10 +10,30 @@
   font-style: normal;
 }
 
+/* --bg-dark: hsl(336 0% 1%);
+--bg: hsl(300 0% 4%);
+--bg-light: hsl(0 0% 9%);
+--text: hsl(300 0% 95%);
+--text-muted: hsl(300 0% 69%);
+--highlight: hsl(330 0% 39%);
+--border: hsl(0 0% 28%);
+--border-muted: hsl(300 0% 18%);
+--primary: hsl(0 66% 75%);
+--secondary: hsl(183 52% 57%);
+--danger: hsl(9 26% 64%);
+--warning: hsl(52 19% 57%);
+--success: hsl(146 17% 59%);
+--info: hsl(217 28% 65%); */
+
 :root {
-  --navBar-color: #3b3b3b;
-  --background-color: #525252;
-  --btn-color: #696969;
+  --navBar-color: hsl(0, 0%, 0%);
+  --background-color: hsl(0, 0%, 0%);
+  --btn-color: hsl(0, 0%, 10%);
+  --text-color1: hsl(0, 0%, 95%);
+  --text-color2: hsl(0, 0%, 70%);
+  --border: hsl(0, 0%, 30%);
+  --highlight: hsl(0, 0%, 60%);
+  --shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
   --font-family: "MelonFruits";
 }
 
@@ -25,31 +45,34 @@
 
 .signupBtn {
   margin-left: auto;
-  border: none;
   background-color: var(--btn-color);
   padding: 0.8em 1.2em;
   margin-right: 0.5em;
   border-radius: 0.5em;
   font-family: var(--font-family);
-  font-size:1em;
+  font-size: 1em;
+  border: 1px solid var(--border);
+  border-top: 1px solid var(--highlight);
+  box-shadow: var(--shadow);
 }
 
 .signupBtn a {
   text-decoration: none;
-  color: #dbdbdb;
+  color: var(--text-color2);
 }
 
 .loginBtn {
-  border: none;
+  border: 1px solid var(--border);
   background-color: var(--btn-color);
   padding: 0.8em 1.2em;
   margin-right: 0.5em;
   border-radius: 0.5em;
   font-family: var(--font-family);
-  font-size:1em;
+  font-size: 1em;
+  border-top: 1px solid var(--highlight);
 }
 
 .loginBtn a {
   text-decoration: none;
-  color: #dbdbdb;
+  color: var(--text-color2);
 }
