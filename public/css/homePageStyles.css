@@ -1,0 +1,55 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "MelonFruits";
+  src: url("/assets/fonts/Melon Fruit.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --navBar-color: #3b3b3b;
+  --background-color: #525252;
+  --btn-color: #696969;
+  --font-family: "MelonFruits";
+}
+
+.navBar {
+  display: flex;
+  background-color: var(--navBar-color);
+  padding: 1em 0em;
+}
+
+.signupBtn {
+  margin-left: auto;
+  border: none;
+  background-color: var(--btn-color);
+  padding: 0.8em 1.2em;
+  margin-right: 0.5em;
+  border-radius: 0.5em;
+  font-family: var(--font-family);
+  font-size:1em;
+}
+
+.signupBtn a {
+  text-decoration: none;
+  color: #dbdbdb;
+}
+
+.loginBtn {
+  border: none;
+  background-color: var(--btn-color);
+  padding: 0.8em 1.2em;
+  margin-right: 0.5em;
+  border-radius: 0.5em;
+  font-family: var(--font-family);
+  font-size:1em;
+}
+
+.loginBtn a {
+  text-decoration: none;
+  color: #dbdbdb;
+}
