@@ -23,3 +23,67 @@ eyeIcon2.addEventListener("click", () => {
     eyeIcon2.style.color = "var(--bg-dark)";
   }
 });
+
+// validation
+const fullname = document.getElementById("fullname");
+const fullnameErrMsg = document.getElementById("fullnameErrMsg");
+
+const username = document.getElementById("username");
+const usernameErrMsg = document.getElementById("usernameErrMsg");
+
+const password = document.getElementById("passwordInput");
+const passwordErrMsg = document.getElementById("passwordErrMsg");
+
+const confirmPassword = document.getElementById("confirmpasswordInput");
+const confirmpasswordErrMsg = document.getElementById("confirmpasswordErrMsg");
+
+fullname.addEventListener("input", (event) => {
+  if (event.target.value.length < 3) {
+    fullnameErrMsg.textContent = "Minimum 3 characters are required";
+  } else {
+    fullnameErrMsg.textContent = "";
+  }
+});
+
+username.addEventListener("input", (event) => {
+  if (event.target.value.length < 3) {
+    usernameErrMsg.textContent = "Minimum 3 characters are required";
+  } else {
+    usernameErrMsg.textContent = "";
+  }
+});
+
+password.addEventListener("input", (event) => {
+  const minLen = 6;
+  const maxLen = 20;
+
+  const hasLowercase = /[a-z]/;
+  const hasUppercase = /[A-Z]/;
+  const hasNumber = /[0-9]/;
+  const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+
+  if (
+    event.target.value.length < minLen ||
+    event.target.value.length > maxLen
+  ) {
+    passwordErrMsg.textContent = "password should be between 6-20";
+  } else if (
+    !hasLowercase.test(event.target.value) ||
+    !hasUppercase.test(event.target.value) ||
+    !hasNumber.test(event.target.value) ||
+    !hasSpecialChar.test(event.target.value)
+  ) {
+    passwordErrMsg.textContent =
+      "Include upper, lower, number, and special char";
+  } else {
+    passwordErrMsg.textContent = "";
+  }
+});
+
+confirmPassword.addEventListener("input", (event) => {
+  if (event.target.value != password.value) {
+    confirmpasswordErrMsg.textContent = "password does not match";
+  } else {
+    confirmpasswordErrMsg.textContent = "";
+  }
+});

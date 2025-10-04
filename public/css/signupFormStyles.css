@@ -53,8 +53,7 @@
   border: solid 1px var(--border2);
   border-top: solid 1px var(--highlight);
   width: 250px;
-  aspect-ratio: 2/3;
-  max-height: 650px;
+  min-height: 460px;
   border-radius: 1em;
   font-family: var(--font-family);
   padding: 0em 0.5em 1em 0.5em;
@@ -141,6 +140,24 @@
   color: var(--info);
   text-decoration: none;
 }
+
+
+/* errmsg styles */
+
+/* .errMsg{
+  color:var(--danger);
+  font-size:.6em;
+  font-family: var(--font-family);
+} */
+
+.errMsg {
+  color: var(--danger);
+  font-size: 0.6em;
+  font-family: var(--font-family);
+  min-height: 1em; /* reserves space even if empty */
+  margin-top: 0.2em;
+}
+
 
 @media (min-width: 600px) {
   .signupForm {

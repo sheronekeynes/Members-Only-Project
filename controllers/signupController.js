@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 async function showSignupForm(req, res) {
-  res.render("signupForm");
+  res.render("SignupForm");
 }
 
 module.exports = {

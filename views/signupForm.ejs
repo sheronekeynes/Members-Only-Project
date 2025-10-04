@@ -15,10 +15,26 @@
       <h1 class="head">Sign up</h1>
       <form action="/signup" method="POST" class="signupForm">
         <label class="label" for="fullname">Fullname</label>
-        <input class="input" type="text" name="fullname" />
+        <input
+          class="input"
+          type="text"
+          pattern="[a-zA-Z0-9]+"
+          title="Only letters and numbers are allowed"
+          name="fullname"
+          id="fullname"
+          required
+        />
+        <p class="errMsg" id="fullnameErrMsg"></p>
 
         <label class="label" for="username">Username</label>
-        <input class="input" type="text" name="username" />
+        <input
+          class="input"
+          type="text"
+          name="username"
+          id="username"
+          required
+        />
+        <p class="errMsg" id="usernameErrMsg"></p>
 
         <label class="label" for="password">Password</label>
         <div class="input passCont">
@@ -27,9 +43,11 @@
             type="password"
             name="password"
             id="passwordInput"
+            required
           />
           <i class="fa-regular fa-eye eyeIcon" id="eyeIcon"></i>
         </div>
+        <p class="errMsg" id="passwordErrMsg"></p>
 
         <label class="label" for="confirmPassword">Confirm password</label>
         <div class="input passCont">
@@ -38,13 +56,15 @@
             type="password"
             name="confirmpassword"
             id="confirmpasswordInput"
+            required
           />
           <i class="fa-regular fa-eye eyeIcon2" id="eyeIcon2"></i>
         </div>
+        <p class="errMsg" id="confirmpasswordErrMsg"></p>
 
         <button type="submit" class="signupBtn">Sign Up</button>
 
-        <p class="loginText">Already have an account?<a href=""> Log In</a></p>
+        <p class="loginText">Already have an account?<a href="/login"> Log In</a></p>
       </form>
     </div>
 
