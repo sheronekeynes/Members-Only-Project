@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/signupFormStyles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="cont">
+      <h1 class="head">Sign up</h1>
+      <form action="/signup" method="POST" class="signupForm">
+        <label class="label" for="fullname">Fullname</label>
+        <input class="input" type="text" name="fullname" />
+
+        <label class="label" for="username">Username</label>
+        <input class="input" type="text" name="username" />
+
+        <label class="label" for="password">Password</label>
+        <div class="input passCont">
+          <input
+            class="passInput"
+            type="password"
+            name="password"
+            id="passwordInput"
+          />
+          <i class="fa-regular fa-eye eyeIcon" id="eyeIcon"></i>
+        </div>
+
+        <label class="label" for="confirmPassword">Confirm password</label>
+        <div class="input passCont">
+          <input
+            class="passInput"
+            type="password"
+            name="confirmpassword"
+            id="confirmpasswordInput"
+          />
+          <i class="fa-regular fa-eye eyeIcon2" id="eyeIcon2"></i>
+        </div>
+
+        <button type="submit" class="signupBtn">Sign Up</button>
+
+        <p class="loginText">Already have an account?<a href=""> Log In</a></p>
+      </form>
+    </div>
+
+    <script src="/js/signupForm.js"></script>
+  </body>
+</html>

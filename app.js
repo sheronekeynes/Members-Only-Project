@@ -6,6 +6,9 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT;
 
+// routes
+const homeRouter = require("./routes/homeRouter.js");
+
 // middlewares
 const methodOverride = require("method-override");
 app.use(express.urlencoded({ extended: true }));
@@ -16,9 +19,7 @@ app.use(methodOverride("_method"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.render("HomePage");
-});
+app.use("/", homeRouter);
 
 app.listen(port, (error) => {
   if (error) {
