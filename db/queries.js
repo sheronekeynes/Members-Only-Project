@@ -21,7 +21,14 @@ async function registerUsertoDB(
   ]);
 }
 
+async function findUserByUsername(username) {
+  const query = "SELECT * FROM clubuser WHERE username = $1";
 
-module.exports={
-    registerUsertoDB
+  const result = await pool.query(query, [username]);
+  return result.rows[0];
 }
+
+module.exports = {
+  registerUsertoDB,
+  findUserByUsername,
+};

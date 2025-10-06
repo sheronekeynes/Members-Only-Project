@@ -36,6 +36,38 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// configure local strategy for passport
+passport.use(
+  new LocalStrategy(async (username, password, done) => {
+    try {
+      const user = await queries.findUserByUsername(username);
+      if (!user) {
+        return done(null, false, { message: "User not found" });
+      }
+
+      const isValid = await bcrypt.compare(password, user.password);
+      if (!isValid) {
+        return done(null, false, { message: "Incorrect password" });
+      }
+      //success
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
+  })
+);
+
+// serialize user into the session
+passport.serializeUser((user, done) => {
+  done(null, user.username);
+});
+
+// deserialize user from the session
+passport.deserializeUser(async (username, done) => {
+  const user = await queries.findUserByUsername(username);
+  done(null, user);
+});
+
 app.use("/", homeRouter);
 
 app.listen(port, (error) => {
