@@ -12,8 +12,20 @@
   </head>
   <body>
     <nav class="navBar">
+      <% if (!isAuthenticated){ %>
       <button class="signupBtn"><a href="/signup">SIGN UP</a></button>
       <button class="loginBtn"><a href="/login">LOGIN IN</a></button>
+      <% } else{ %>
+      <div class="profileCont">
+        <div class="profileIconCont">
+          <h2 class="userIcon"><%=currentUser.username[0].toUpperCase()%></h2>
+        </div>
+        <h2 class="userName"><%=currentUser.username%></h2>
+      </div>
+      <form class="logoutBtnCont" action="/logout" method="POST">
+        <button type="submit" class="logoutBtn">LOGIN OUT</button>
+      </form>
+      <% } %>
     </nav>
   </body>
 </html>

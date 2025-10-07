@@ -89,3 +89,78 @@
   border-top: 1px solid var(--highlight2);
   background-color: var(--bg-light);
 }
+
+.profileCont{
+  display: flex;
+  align-items: center;
+  margin-left:1.5em;
+  font-family: var(--font-family);
+}
+
+.profileIconCont{
+  width:30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userIcon{
+  color:var(--background-color);
+  font-size:1em;
+}
+
+.userName{
+  margin-left:.8em;
+  font-size:.8em;
+  color:var(--text);
+}
+
+.logoutBtnCont{
+  margin-left:auto;
+}
+
+
+.logoutBtn {
+  color: var(--text);
+  border: 1px solid var(--border);
+  background-color: var(--btn-color);
+  padding: 0.8em 1.2em;
+  margin-right: 0.5em;
+  border-radius: 0.5em;
+  font-family: var(--font-family);
+  font-size: 0.8em;
+  border-top: 1px solid var(--highlight);
+  font-weight: bold;
+  margin-left:auto;
+  cursor: pointer;
+}
+
+
+.logoutBtn:hover {
+  border-top: 1px solid var(--highlight2);
+  background-color: var(--bg-light);
+}
+
+
+@media (min-width:678px){
+
+  
+.profileIconCont{
+  width:40px;
+  height: 40px;
+
+}
+
+.userIcon{
+  color:var(--background-color);
+  font-size:1.5em;
+}
+
+.userName{
+  color:var(--text);
+  font-size:1.2em;
+}
+}
