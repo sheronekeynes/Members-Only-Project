@@ -4,6 +4,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const queries = require("./db/queries.js");
+const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 
