@@ -23,9 +23,27 @@
         <h2 class="userName"><%=currentUser.username%></h2>
       </div>
       <form class="logoutBtnCont" action="/logout" method="POST">
-        <button type="submit" class="logoutBtn">LOGIN OUT</button>
+        <button type="submit" class="logoutBtn">LOGOUT</button>
       </form>
       <% } %>
     </nav>
+
+    <div class="msgCont">
+      <% console.log(userMessageDetails , isAuthenticated) %>
+
+      <!-- Todo -->
+      <!-- add  message and a join now button -->
+
+      <% for(let user of userMessageDetails){ %>
+
+      <div class="msgCard">
+        <% if(isAuthenticated){%>
+        <p style="color: white"><%=user.username%></p>
+        <%}else{%>
+        <p style="color: white">Anonyomous user</p>
+        <%}%>
+      </div>
+      <%}%>
+    </div>
   </body>
 </html>

@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 const signupController = require("../controllers/signupController.js");
 const loginController = require("../controllers/loginController.js");
+const queries = require("../db/queries.js");
 
-router.get("/", (req, res) => {
-  console.log(req.user);
-  res.render("HomePage");
+router.get("/", async (req, res) => {
+  const userMessageDetails = await queries.getUsersMessage();
+
+  res.render("HomePage", { userMessageDetails });
 });
 
 function redirectIfAuthenticated(req, res, next) {

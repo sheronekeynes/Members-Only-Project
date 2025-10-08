@@ -71,6 +71,51 @@ async function populateUsers() {
   console.log("Sample users added");
 }
 
+async function populateMessages() {
+  const res = await client.query(`SELECT id, username FROM clubuser;`);
+  const users = res.rows;
+
+  const findUserId = (username) =>
+    users.find((u) => u.username === username)?.id;
+
+  const messages = [
+    {
+      title: "Welcome Message",
+      content: "Welcome to the club! Feel free to post your thoughts.",
+      username: "guest",
+    },
+    {
+      title: "Weekly Meetup",
+      content: "Hey members! Our next meetup will be this Saturday at 6 PM.",
+      username: "member",
+    },
+    {
+      title: "Important Announcement",
+      content: "All admins must review the new member requests by tonight.",
+      username: "admin",
+    },
+    {
+      title: "General Chat",
+      content: "Let's keep this place friendly and fun!",
+      username: "member",
+    },
+  ];
+
+  for (const msg of messages) {
+    const userId = findUserId(msg.username);
+    if (userId) {
+      await client.query(
+        `INSERT INTO message (title, content, userid)
+         VALUES ($1, $2, $3)
+         ON CONFLICT DO NOTHING;`,
+        [msg.title, msg.content, userId]
+      );
+    }
+  }
+
+  console.log("Sample messages added");
+}
+
 async function seed() {
   try {
     await client.connect();
@@ -79,6 +124,7 @@ async function seed() {
     await client.query(createUserTableQuery);
     await client.query(createMessageTableQuery);
     await populateUsers();
+    await populateMessages();
     console.log("seeding complete...");
   } catch (err) {
     console.log("error: ", err);

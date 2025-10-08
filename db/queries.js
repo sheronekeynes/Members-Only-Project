@@ -28,7 +28,17 @@ async function findUserByUsername(username) {
   return result.rows[0];
 }
 
+async function getUsersMessage() {
+  const query = `SELECT clubuser.username,message.title,message.content,message.createdate,clubuser.membershipstatus,clubuser.admin
+                 FROM clubuser inner join message on clubuser.id = message.userid`;
+
+  const { rows } = await pool.query(query);
+
+  return rows;
+}
+
 module.exports = {
   registerUsertoDB,
   findUserByUsername,
+  getUsersMessage,
 };

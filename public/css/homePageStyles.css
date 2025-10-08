@@ -90,38 +90,37 @@
   background-color: var(--bg-light);
 }
 
-.profileCont{
+.profileCont {
   display: flex;
   align-items: center;
-  margin-left:1.5em;
+  margin-left: 1.5em;
   font-family: var(--font-family);
 }
 
-.profileIconCont{
-  width:30px;
+.profileIconCont {
+  width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color:white;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.userIcon{
-  color:var(--background-color);
-  font-size:1em;
+.userIcon {
+  color: var(--background-color);
+  font-size: 1em;
 }
 
-.userName{
-  margin-left:.8em;
-  font-size:.8em;
-  color:var(--text);
+.userName {
+  margin-left: 0.8em;
+  font-size: 0.8em;
+  color: var(--text);
 }
 
-.logoutBtnCont{
-  margin-left:auto;
+.logoutBtnCont {
+  margin-left: auto;
 }
-
 
 .logoutBtn {
   color: var(--text);
@@ -134,33 +133,53 @@
   font-size: 0.8em;
   border-top: 1px solid var(--highlight);
   font-weight: bold;
-  margin-left:auto;
+  margin-left: auto;
   cursor: pointer;
 }
-
 
 .logoutBtn:hover {
   border-top: 1px solid var(--highlight2);
   background-color: var(--bg-light);
 }
 
+/* msg container styles */
 
-@media (min-width:678px){
-
-  
-.profileIconCont{
-  width:40px;
-  height: 40px;
-
+.msgCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
 }
 
-.userIcon{
-  color:var(--background-color);
-  font-size:1.5em;
+.msgCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-dark);
+  border: solid 1px var(--border-muted);
+  margin-bottom: 1em;
+  width: 250px;
+  aspect-ratio: 2/1;
+  border-top: solid 1px var(--highlight2);
+  border-radius: 1em;
 }
 
-.userName{
-  color:var(--text);
-  font-size:1.2em;
-}
+@media (min-width: 678px) {
+  .profileIconCont {
+    width: 40px;
+    height: 40px;
+  }
+
+  .userIcon {
+    color: var(--background-color);
+    font-size: 1.5em;
+  }
+
+  .userName {
+    color: var(--text);
+    font-size: 1.2em;
+  }
 }
