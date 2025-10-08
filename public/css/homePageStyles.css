@@ -27,6 +27,8 @@
   --highlight2: hsl(330 0% 39%);
   --border2: hsl(0 0% 28%);
   --border-muted: hsl(300 0% 18%);
+  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
   --primary: hsl(0 66% 75%);
   --secondary: hsl(183 52% 57%);
   --danger: hsl(9 26% 64%);
@@ -158,13 +160,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--bg-dark);
+  background-image: var(--gradient);
   border: solid 1px var(--border-muted);
   margin-bottom: 1em;
   width: 250px;
   aspect-ratio: 2/1;
-  border-top: solid 1px var(--highlight2);
+  border-top: solid 1px var(--highlight);
   border-radius: 1em;
+}
+
+.msgCard:hover {
+  background-image: var(--gradient-hover);
 }
 
 @media (min-width: 678px) {
