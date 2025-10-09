@@ -82,6 +82,7 @@
   font-size: 0.8em;
   border-top: 1px solid var(--highlight);
   font-weight: bold;
+  margin-right: 1em;
 }
 
 .loginBtn a {
@@ -131,7 +132,7 @@
   border: 1px solid var(--border);
   background-color: var(--btn-color);
   padding: 0.8em 1.2em;
-  margin-right: 0.5em;
+  margin-right: 2em;
   border-radius: 0.5em;
   font-family: var(--font-family);
   font-size: 0.8em;
@@ -305,6 +306,10 @@
   .profileIconCont {
     width: 40px;
     height: 40px;
+  }
+
+  .loginBtn {
+    margin-right: 2em;
   }
 
   .userIcon {

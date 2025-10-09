@@ -28,14 +28,13 @@
       <% } %>
     </nav>
 
-    <% console.log(userMessageDetails)%>
 
     <div class="msgCont">
       <!-- Todo -->
       <!-- add  message and a join now button -->
-      <% if(isAuthenticated===true && !userMessageDetails.membershipstatus){%>
+      <% if(isAuthenticated===true && !currentUser.membershipstatus){%>
 
-      <form class="joinNowCont" method="GET">
+      <form class="joinNowCont" action="/join" method="GET">
         <h1 class="joinHead">Want to join the club?</h1>
 
         <button type="submit" class="joinBtn">JOIN NOW</button>

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const signupController = require("../controllers/signupController.js");
 const loginController = require("../controllers/loginController.js");
+const joinController = require("../controllers/joinController.js");
 const queries = require("../db/queries.js");
 
 router.get("/", async (req, res) => {
@@ -32,5 +33,7 @@ router.post("/logout", (req, res, next) => {
     res.redirect("/");
   });
 });
+
+router.get("/join", joinController.showJoinForm);
 
 module.exports = router;
