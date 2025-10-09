@@ -43,6 +43,8 @@
   display: flex;
   background-color: var(--navBar-color);
   padding: 1em 0em;
+  position: fixed;
+  width: 100vw;
 }
 
 .signupBtn {
@@ -144,6 +146,51 @@
   background-color: var(--bg-light);
 }
 
+/* join now styles */
+
+.joinNowCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: var(--gradient);
+  border: solid 1px var(--border-muted);
+  margin-bottom: 1em;
+  margin-top: 1.5em;
+  width: 300px;
+  min-height: 180px;
+  aspect-ratio: 2/1;
+  border-top: solid 1px var(--highlight);
+  border-radius: 1em;
+  overflow: hidden;
+  padding-bottom: 0.5em;
+  font-family: var(--font-family);
+}
+
+.joinHead {
+  color: var(--text-color1);
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.joinBtn {
+  color: var(--bg-dark);
+  border: 1px solid var(--border);
+  background-color: var(--text-color1);
+  padding: 0.8em 1.2em;
+  margin-right: 0.5em;
+  border-radius: 0.5em;
+  font-family: var(--font-family);
+  font-size: 0.8em;
+  border-top: 1px solid var(--highlight);
+  font-weight: bold;
+  margin-top: 2em;
+  cursor: pointer;
+}
+
+.joinNowCont:hover {
+  background-image: var(--gradient-hover);
+}
+
 /* msg container styles */
 
 .msgCont {
@@ -151,9 +198,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: var(--background-color);
+  padding-top: 5em;
 }
 
 .msgCard {
@@ -163,14 +211,94 @@
   background-image: var(--gradient);
   border: solid 1px var(--border-muted);
   margin-bottom: 1em;
+  margin-top: 1.5em;
   width: 250px;
+  min-height: 170px;
   aspect-ratio: 2/1;
   border-top: solid 1px var(--highlight);
   border-radius: 1em;
+  overflow: hidden;
+  padding-bottom: 0.5em;
 }
 
 .msgCard:hover {
   background-image: var(--gradient-hover);
+}
+
+.anonymousUserCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.7em;
+  width: 100%;
+  font-family: var(--font-family);
+}
+
+.anonymousUserImg {
+  color: var(--text-color2);
+  margin-right: auto;
+  font-size: 30px;
+  margin-left: 0.3em;
+}
+
+.anonymousUserName {
+  color: var(--text-color1);
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.anonymousUserMsg {
+  color: var(--text-color2);
+  text-align: center;
+  margin-top: 1em;
+  font-family: var(--font-family);
+  padding: 0.5em;
+  font-size: 0.9em;
+  overflow-y: auto;
+}
+
+.loggedInUserCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.7em;
+  width: 100%;
+  font-family: var(--font-family);
+}
+
+.loggedInUserIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--bg-dark);
+  border: solid 1px var(--border);
+  box-shadow: var(--shadow);
+  color: var(--text-color2);
+  margin-right: auto;
+  margin-left: 0.5em;
+}
+
+.loggedInUserNameIcon {
+}
+
+.loggedInUserName {
+  color: var(--text-color1);
+  width: 100%;
+  padding-left: 0.5em;
+}
+
+.postedDateTime {
+  color: var(--text-muted);
+  font-family: var(--font-family);
+  margin-left: auto;
+  margin-right: 1em;
+  font-size: 0.7em;
+  padding-top: 0.7em;
+  margin-top: auto;
 }
 
 @media (min-width: 678px) {
@@ -187,5 +315,28 @@
   .userName {
     color: var(--text);
     font-size: 1.2em;
+  }
+
+  .msgCard {
+    width: 400px;
+    min-height: 220px;
+  }
+
+  .anonymousUserMsg {
+    justify-self: center;
+    height: 100%;
+    width: 100%;
+    padding-top: 2em;
+    font-size: 1.2em;
+    padding-bottom: 0.5em;
+  }
+
+  .joinNowCont {
+    width: 500px;
+    height: 150px;
+  }
+
+  .joinHead {
+    margin-top: 1.2em;
   }
 }
