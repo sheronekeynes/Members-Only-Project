@@ -87,3 +87,16 @@ confirmPassword.addEventListener("input", (event) => {
     confirmpasswordErrMsg.textContent = "";
   }
 });
+
+//server error msg
+
+const serverErrorMsg = document.getElementById("serverErrorMsg");
+const signupInputs = document.querySelectorAll(".signupForm input");
+
+signupInputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    if (serverErrorMsg) {
+      serverErrorMsg.style.display = "none";
+    }
+  });
+});

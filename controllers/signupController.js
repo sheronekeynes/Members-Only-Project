@@ -3,11 +3,10 @@ const bcrypt = require("bcrypt");
 const queries = require("../db/queries.js");
 
 async function showSignupForm(req, res) {
-  res.render("SignupForm");
+  res.render("SignupForm", { errorMsg: null });
 }
 
 async function registerUser(req, res) {
-
   const { fullname, username, password, confirmpassword } = req.body;
 
   // validation
@@ -26,15 +25,25 @@ async function registerUser(req, res) {
     hashedPassword = await bcrypt.hash(password, 10);
   }
 
-  await queries.registerUsertoDB(
-    fullname,
-    username,
-    hashedPassword,
-    "false",
-    "false"
-  );
-
-  res.redirect("/login");
+  try {
+    await queries.registerUsertoDB(
+      fullname,
+      username,
+      hashedPassword,
+      "false",
+      "false"
+    );
+    res.redirect("/login");
+  } catch (err) {
+    if (err.message.includes("Username already exists")) {
+      res.render("signupForm", {
+        errorMsg: "Username already taken. Try another.",
+      });
+    } else {
+      console.error(err);
+      res.render("signupForm", { errorMsg: "Something went wrong." });
+    }
+  }
 }
 
 module.exports = {

@@ -62,9 +62,15 @@
         </div>
         <p class="errMsg" id="confirmpasswordErrMsg"></p>
 
+        <% if (typeof errorMsg !== 'undefined' && errorMsg) { %>
+        <p class="serverErrorMsg" id="serverErrorMsg"><%= errorMsg %></p>
+        <% } %>
+
         <button type="submit" class="signupBtn">Sign Up</button>
 
-        <p class="loginText">Already have an account?<a href="/login"> Log In</a></p>
+        <p class="loginText">
+          Already have an account?<a href="/login"> Log In</a>
+        </p>
       </form>
     </div>
 

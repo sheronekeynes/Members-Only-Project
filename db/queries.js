@@ -12,14 +12,21 @@ async function registerUsertoDB(
 ) {
   const query = `INSERT INTO clubuser (fullname,username,password,membershipstatus,admin)
                    VALUES($1,$2,$3,$4,$5)`;
-
-  await pool.query(query, [
-    fullname,
-    username,
-    password,
-    membershipstatus,
-    admin,
-  ]);
+  try {
+    await pool.query(query, [
+      fullname,
+      username,
+      password,
+      membershipstatus,
+      admin,
+    ]);
+  } catch (err) {
+    if (err.code === "23505") {
+      // PostgreSQL duplicate key error code
+      throw new Error("Username already exists!");
+    }
+    throw err;
+  }
 }
 
 async function findUserByUsername(username) {

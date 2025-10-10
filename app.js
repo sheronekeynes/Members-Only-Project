@@ -5,6 +5,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const queries = require("./db/queries.js");
 const bcrypt = require("bcrypt");
+const flash = require("connect-flash");
 
 require("dotenv").config();
 
@@ -41,6 +42,13 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   res.locals.isAuthenticated = req.isAuthenticated();
 
+  next();
+});
+
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.error = req.flash("error");
   next();
 });
 
