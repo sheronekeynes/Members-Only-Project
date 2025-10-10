@@ -19,6 +19,14 @@ function redirectIfAuthenticated(req, res, next) {
   }
 }
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
+
 router.get("/signup", redirectIfAuthenticated, signupController.showSignupForm);
 
 router.post("/signup", signupController.registerUser);
@@ -34,6 +42,8 @@ router.post("/logout", (req, res, next) => {
   });
 });
 
-router.get("/join", joinController.showJoinForm);
+router.get("/join", ensureAuthenticated, joinController.showJoinForm);
+
+router.post("/join", ensureAuthenticated, joinController.joinClub);
 
 module.exports = router;

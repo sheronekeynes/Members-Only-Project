@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/joinFormStyles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="cont">
+      <form class="joinFormCont" action="/join" method="POST">
+        <label class="label" for="joinPassword"
+          >Enter the secret passcode</label
+        >
+        <div class="input passCont">
+          <input
+            class="passInput"
+            type="password"
+            name="password"
+            id="secretPass"
+            required
+          />
+          <i class="fa-regular fa-eye eyeIcon" id="secretEyeIcon"></i>
+        </div>
+        <p class="errMsg" id="secretPasswordErrMsg">
+          <% if (errorMsg) { %> <%= errorMsg %> <% } %>
+        </p>
+
+        <button type="submit" class="joinNowBtn">JOIN</button>
+        <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+      </form>
+    </div>
+
+    <script src="/js/joinForm.js"></script>
+  </body>
+</html>

@@ -1,3 +1,4 @@
+const { use } = require("passport");
 const pool = require("./pool");
 
 // register user
@@ -37,8 +38,17 @@ async function getUsersMessage() {
   return rows;
 }
 
+async function membershipPermission(userId) {
+  const query = `UPDATE clubuser 
+                 SET membershipstatus = true
+                 where id=$1`;
+
+  await pool.query(query, [userId]);
+}
+
 module.exports = {
   registerUsertoDB,
   findUserByUsername,
   getUsersMessage,
+  membershipPermission,
 };

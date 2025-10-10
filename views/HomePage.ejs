@@ -28,7 +28,6 @@
       <% } %>
     </nav>
 
-
     <div class="msgCont">
       <!-- Todo -->
       <!-- add  message and a join now button -->
@@ -43,7 +42,7 @@
       <%}%> <% for(let user of userMessageDetails){ %>
 
       <div class="msgCard">
-        <% if(isAuthenticated){%>
+        <% if(isAuthenticated && currentUser.membershipstatus){%>
 
         <div class="loggedInUserCont">
           <div class="loggedInUserIcon">
