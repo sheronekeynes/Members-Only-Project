@@ -81,6 +81,22 @@
 
         <%}%>
       </div>
+      <%}%> <% if(isAuthenticated){ %>
+
+      <div class="cover">
+        <form class="msgBox" action="/addMessage" method="POST">
+          <textarea
+            name="textContent"
+            class="msgInput"
+            placeholder="Send a message..."
+            id=""
+          ></textarea>
+          <button type="submit" class="sendBtn">
+            <i class="fa-solid fa-paper-plane sendIcon"></i>
+          </button>
+        </form>
+      </div>
+
       <%}%>
     </div>
   </body>
