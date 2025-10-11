@@ -20,7 +20,6 @@ const createUserTableQuery = `CREATE TABLE IF NOT EXISTS clubuser(
 
 const createMessageTableQuery = `CREATE TABLE IF NOT EXISTS message(
                                 id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-                                title VARCHAR (255) NOT NULL,
                                 content TEXT NOT NULL,
                                 createdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                 userid UUID REFERENCES clubuser(id) ON DELETE CASCADE
@@ -80,22 +79,18 @@ async function populateMessages() {
 
   const messages = [
     {
-      title: "Welcome Message",
       content: "Welcome to the club! Feel free to post your thoughts.",
       username: "guest",
     },
     {
-      title: "Weekly Meetup",
       content: "Hey members! Our next meetup will be this Saturday at 6 PM.",
       username: "member",
     },
     {
-      title: "Important Announcement",
       content: "All admins must review the new member requests by tonight.",
       username: "admin",
     },
     {
-      title: "General Chat",
       content: "Let's keep this place friendly and fun!",
       username: "member",
     },
@@ -105,10 +100,10 @@ async function populateMessages() {
     const userId = findUserId(msg.username);
     if (userId) {
       await client.query(
-        `INSERT INTO message (title, content, userid)
-         VALUES ($1, $2, $3)
+        `INSERT INTO message (content, userid)
+         VALUES ($1, $2)
          ON CONFLICT DO NOTHING;`,
-        [msg.title, msg.content, userId]
+        [msg.content, userId]
       );
     }
   }

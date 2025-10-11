@@ -37,7 +37,7 @@ async function findUserByUsername(username) {
 }
 
 async function getUsersMessage() {
-  const query = `SELECT clubuser.username,message.title,message.content,message.createdate,clubuser.membershipstatus,clubuser.admin
+  const query = `SELECT clubuser.username,message.content,message.createdate,clubuser.membershipstatus,clubuser.admin
                  FROM clubuser inner join message on clubuser.id = message.userid`;
 
   const { rows } = await pool.query(query);
@@ -53,9 +53,18 @@ async function membershipPermission(userId) {
   await pool.query(query, [userId]);
 }
 
+async function addMessage(content, userId) {
+  const query = `INSERT INTO message (content, userid)
+         VALUES ($1, $2)
+         ON CONFLICT DO NOTHING;`;
+
+  await pool.query(query, [content, userId]);
+}
+
 module.exports = {
   registerUsertoDB,
   findUserByUsername,
   getUsersMessage,
   membershipPermission,
+  addMessage,
 };

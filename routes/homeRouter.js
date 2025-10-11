@@ -46,4 +46,11 @@ router.get("/join", ensureAuthenticated, joinController.showJoinForm);
 
 router.post("/join", ensureAuthenticated, joinController.joinClub);
 
+router.post("/", async (req, res) => {
+  console.log(req.body);
+  const { textContent, userId } = req.body;
+  await queries.addMessage(textContent, userId);
+  res.redirect("/");
+});
+
 module.exports = router;
