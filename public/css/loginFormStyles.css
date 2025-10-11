@@ -163,3 +163,15 @@
     margin-top: 0.8em;
   }
 }
+
+@media (max-width: 300px) {
+  .head {
+    font-size: 1em;
+  }
+
+  .loginForm {
+    flex-shrink: 1;
+    width: 90%;
+    max-width: 180px;
+  }
+}

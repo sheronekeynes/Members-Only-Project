@@ -122,3 +122,10 @@
   margin-top: 0.2em;
   margin-left: 0.5em;
 }
+
+@media (max-width: 300px) {
+  .joinFormCont {
+    flex-shrink: 1;
+    width: 90%;
+  }
+}

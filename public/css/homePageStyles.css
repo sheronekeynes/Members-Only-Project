@@ -395,3 +395,73 @@
     width: 600px;
   }
 }
+
+@media (max-width: 300px) {
+  .navBar {
+    flex-shrink: 1;
+  }
+
+  .signupBtn {
+    width: 70px;
+    font-size: 0.5em;
+  }
+
+  .loginBtn {
+    width: 70px;
+    font-size: 0.5em;
+  }
+
+  .logoutBtn {
+    width: 70px;
+    font-size: 0.5em;
+  }
+
+  .profileIconCont {
+    flex-shrink: 1;
+  }
+  .userIcon {
+  }
+
+  .userName {
+    font-size: 0.7em;
+  }
+
+  .joinNowCont {
+    flex-shrink: 1;
+    width: 100%;
+    max-width: 190px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .joinHead {
+    font-size: 1em;
+  }
+
+  .joinBtn {
+    width: 70px;
+    font-size: 0.5em;
+  }
+
+  .msgCont {
+    flex-shrink: 3;
+  }
+  .msgCard {
+    flex-shrink: 1;
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .anonymousUserImg {
+    font-size: 20px;
+  }
+
+  .anonymousUserName {
+    font-size: 0.8em;
+  }
+
+  .msgBox {
+    flex-shrink: 1;
+    width: 150px;
+  }
+}
