@@ -38,12 +38,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  res.locals.isAuthenticated = req.isAuthenticated();
+// app.use((req, res, next) => {
+//   res.locals.currentUser = req.user;
+//   res.locals.isAuthenticated = req.isAuthenticated();
 
-  next();
-});
+//   next();
+// });
 
 app.use(flash());
 

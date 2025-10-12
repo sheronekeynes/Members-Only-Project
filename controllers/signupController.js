@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 const queries = require("../db/queries.js");
 
 async function showSignupForm(req, res) {
+  const flashError = req.flash("error")[0];
   res.render("SignupForm", {
-    // Pass the retrieved flash message, or null if none exists.
-    errorMsg: res.locals.error[0] || null,
+    errorMsg: flashError || null,
   });
 }
 
