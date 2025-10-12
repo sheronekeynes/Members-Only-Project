@@ -2,12 +2,25 @@ const { Client } = require("pg");
 const bcrypt = require("bcrypt");
 
 require("dotenv").config();
+// const client = new Client({
+//   user: process.env.PGUSER,
+//   host: process.env.PGHOST,
+//   database: process.env.PGDATABASE,
+//   password: process.env.PGPASSWORD,
+//   port: process.env.PGPORT,
+// });
+
 const client = new Client({
-  user: process.env.PGUSER,
-  host: process.env.PGHOST,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
+  // Use the full URL if available (for Neon)
+  connectionString: process.env.DATABASE_URL,
+
+  // OR, if you want to explicitly use separate settings for local fallback:
+  // user: process.env.PGUSER,
+  // host: process.env.PGHOST,
+  // ...
+
+  // Note: When connectionString is used, other parameters are usually ignored.
+  // The safest way is just to pass the URL.
 });
 
 const createUserTableQuery = `CREATE TABLE IF NOT EXISTS clubuser(
