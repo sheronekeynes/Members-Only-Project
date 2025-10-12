@@ -4,7 +4,7 @@ const queries = require("../db/queries.js");
 
 async function showSignupForm(req, res) {
   const flashError = req.flash("error")[0];
-  res.render("SignupForm", {
+  res.render("signupForm", {
     errorMsg: flashError || null,
   });
 }
