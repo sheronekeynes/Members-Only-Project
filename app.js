@@ -19,7 +19,7 @@ const homeRouter = require("./routes/homeRouter.js");
 const methodOverride = require("method-override");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
 // set engine
