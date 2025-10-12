@@ -38,18 +38,18 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use((req, res, next) => {
-//   res.locals.currentUser = req.user;
-//   res.locals.isAuthenticated = req.isAuthenticated();
-
-//   next();
-// });
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
 
 app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.errorMsg = req.flash("error")[0];
-  res.locals.error = req.flash("error");
+  // res.locals.error = req.flash("error");
+
   next();
 });
 
