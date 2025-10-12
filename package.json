@@ -1,10 +1,10 @@
 {
   "name": "members-only-project",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "api/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "node api/server.js",
     "devstart": "nodemon app.js"
   },
   "keywords": [],

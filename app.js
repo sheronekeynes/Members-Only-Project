@@ -86,10 +86,12 @@ passport.deserializeUser(async (username, done) => {
 
 app.use("/", homeRouter);
 
-app.listen(port, (error) => {
-  if (error) {
-    console.log("oops something went wrong", error);
-    return;
-  }
-  console.log("Server listening in port: ", port);
-});
+// app.listen(port, (error) => {
+//   if (error) {
+//     console.log("oops something went wrong", error);
+//     return;
+//   }
+//   console.log("Server listening in port: ", port);
+// });
+
+module.exports = app;
