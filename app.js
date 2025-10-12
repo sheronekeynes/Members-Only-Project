@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 app.use(flash());
 
 app.use((req, res, next) => {
+  res.locals.errorMsg = req.flash("error")[0];
   res.locals.error = req.flash("error");
   next();
 });
