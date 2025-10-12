@@ -41,6 +41,12 @@ app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   res.locals.isAuthenticated = req.isAuthenticated();
+
+  const errorArray = req.flash("error");
+  res.locals.error = errorArray;
+
+  // B. Also provide the first message as 'errorMsg' (RECOMMENDED for SignupForm.ejs, via res.locals inheritance)
+  res.locals.errorMsg = errorArray[0] || null;
   next();
 });
 
